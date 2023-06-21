@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iottesing
+  labels:
+    app: iottesing
+  namespace: namespace-workflow-1687324721536
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: iottesing
+  template:
+    metadata:
+      labels:
+        app: iottesing
+    spec:
+      containers:
+        - name: iottesing
+          image: acrworkflow1687324721536.azurecr.io/image-workflow-1687324721536:latest
+          ports:
+            - containerPort: 3000
